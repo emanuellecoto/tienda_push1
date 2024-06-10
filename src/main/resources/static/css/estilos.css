@@ -1,17 +1,58 @@
 body{
     background-color: bisque;
+    box-sizing: border-box;
     font-family: sans-serif;
     margin:0;
 }
 
-header{
+.header{
     position: fixed;
-    background-color: rgb(100,100,155);
+    background-color: #816Af0;
     top: 0;
     left: 0;
     width: 100%;
     height: 100px;
     color: white;
+}
+
+.nav{
+    display:flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.nav-link{
+    color: white;
+    text-decoration: none;
+}
+
+.logo{
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0 40px;
+    line-height: 100px;
+}
+
+.nav-menu{
+    display: flex;
+    margin-right: 40px;
+    list-style: none;
+}
+
+.nav-menu-item{
+    font-size: 18px;
+    margin: 0 10px;
+    line-height: 100px;
+}
+
+.nav-menu-link:hover{
+    background-color: #076Aa0;
+}
+
+.nav-menu-link{
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: 0.5s;
 }
 
 aside{
@@ -26,11 +67,23 @@ aside{
 
 section{
     position: fixed;
-    background-color: rgb(40,80,155);
+    overflow-y: scroll;
+    background-color: bisque;
     top:100px;
     left: 20%;
     width: 80%;
     bottom: 20px;
     color: white;
     padding: 10px;
+}
+
+footer{
+    text-align: center;
+    position: fixed;
+    background-color: black;
+    color: white;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 20px;
 }
