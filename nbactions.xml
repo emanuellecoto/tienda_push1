@@ -15,7 +15,7 @@
                 <exec.appArgs></exec.appArgs>
                 <exec.mainClass>com.tienda_k.TiendaApplication</exec.mainClass>
                 <exec.executable>java</exec.executable>
-                <exec.workingdir>C:\Users\ech77\OneDrive\Documents\NetBeansProjects\Tienda_k</exec.workingdir>
+                <exec.workingdir>..\Documents\NetBeansProjects\Tienda_k</exec.workingdir>
             </properties>
         </action>
         <action>
