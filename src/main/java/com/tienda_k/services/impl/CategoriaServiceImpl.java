@@ -14,15 +14,30 @@ public class CategoriaServiceImpl
 
     @Autowired
     private CategoriaDao categoriaDao;
-    
+
     @Override
-    @Transactional(readOnly=true)
+    @Transactional(readOnly = true)
     public List<Categoria> getCategorias(boolean activo) {
-       var lista = categoriaDao.findAll();
-       if (activo){  //Solo activos..
-           lista.removeIf(c -> !c.isActivo());
-       }
-       return lista; 
+        var lista = categoriaDao.findAll();
+        if (activo) {  //Solo activos..
+            lista.removeIf(c -> !c.isActivo());
+        }
+        return lista;
+    }
+
+    @Override
+    public Categoria getCategoria(Categoria categoria) {
+        return categoriaDao.findById(categoria.getIdCategoria()).orElse(null);
+    }
+
+    @Override
+    public void save(Categoria categoria) {
+        categoriaDao.save(categoria);
+    }
+
+    @Override
+    public void delete(Categoria categoria) {
+         categoriaDao.delete(categoria);
     }
 
 }
