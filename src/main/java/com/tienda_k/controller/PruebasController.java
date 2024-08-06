@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
-@RequestMapping("/producto")
-public class ProductoController {
+@RequestMapping("/pruebas")
+public class PruebasController {
 
     @Autowired
     private ProductoService productoService;
@@ -27,37 +27,10 @@ public class ProductoController {
     public String listado(Model model) {
         var productos = productoService.getProductos(false);
         model.addAttribute("productos", productos);
-        model.addAttribute("totalProductos", productos.size());
 
         var categorias = categoriaService.getCategorias(false);
         model.addAttribute("categorias", categorias);
-        return "/producto/listado";
-    }
-
-    @Autowired
-    private FirebaseStorageService firebaseStorageService;
-
-    @PostMapping("/guardar")
-    public String guardar(Producto producto,
-            @RequestParam("imagenFile") MultipartFile imagenFile) {
-
-        if (!imagenFile.isEmpty()) {
-            productoService.save(producto);
-            String rutaImagen
-                    = firebaseStorageService.cargaImagen(imagenFile,
-                            "producto",
-                            producto.getIdProducto());
-            producto.setRutaImagen(rutaImagen);
-        }
-        productoService.save(producto);
-
-        return "redirect:/producto/listado";
-    }
-
-    @GetMapping("/eliminar/{idProducto}")
-    public String eliminar(Producto producto) {
-        productoService.delete(producto);
-        return "redirect:/producto/listado";
+        return "/pruebas/listado";
     }
 
     @GetMapping("/modificar/{idProducto}")

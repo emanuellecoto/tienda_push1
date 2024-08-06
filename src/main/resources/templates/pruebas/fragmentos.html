@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!-- Mi primera página dinamica-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>TechShop 2020</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+
+        <!-- 1 Sección para mostrar los tabs de las categorias-->
+        <section th:fragment="tabsCategorias" class="bg-light">
+            <div class="row p-4">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Todas</a>
+                    </li>
+                    <li class="nav-item"
+                        th:each="c : ${categorias}">
+                        <a class="nav-link" href="#">[[${c.descripcion}]]</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 2 Seccion para mostrar las tarjetas de producto-->
+        <section th:fragment="listado" class="bg-light">
+            <div class="row row-cols-4">
+                <div class="card"
+                     th:each = "p : ${productos}">
+                    <figure>
+                        <img th:src="${p.rutaImagen}" 
+                              alt="alt"
+                              height="200"/>
+                    </figure>
+                    <figcaption>
+                        $[[${p.precio}]] ([[${p.existencias}]])
+                    </figcaption>
+                    <div class="card-header">
+                        <h4>[[${p.descripcion}]]</h4>
+                    </div>
+                    <div class="card-body">
+                        <p>[[${p.detalle}]]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+    </body>
+</html>
