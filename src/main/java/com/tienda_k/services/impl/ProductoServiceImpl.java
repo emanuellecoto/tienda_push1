@@ -39,5 +39,10 @@ public class ProductoServiceImpl
     public void delete(Producto producto) {
          productoDao.delete(producto);
     }
+    
+    @Override
+    public List<Producto> consulta1(double precioInf, double precioSup){
+       return productoDao.findByPrecioBetweenOrderByDescripcion(precioInf,precioSup);
+    }
 
 }
